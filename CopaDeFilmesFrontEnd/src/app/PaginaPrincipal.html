@@ -1,0 +1,51 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="jumbotron text-center">
+          <p class="lead">Campeonato de Filmes</p>
+        <h1 class="display-4">Fase de Seleção</h1>
+        <hr class="my-4">
+        <p class="lead">Selecione 8 filmes que você deseja que entrem na competição e 
+          depois pressione o botão  Gerar Meu Campeonato para prosseguir.</p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="float-left">
+          <strong>Selecionados <br>
+          <span id="totalFilmesSelecionados">{{totalSelecionado}}</span> de 8 filmes</strong>
+      </div>
+    </div>
+    <div class="col-md-6">
+        <div class="float-right">
+            <button id="btnGerarCampeonato" type="button" class="btn btn-primary" (click)="GerarCampeonato()"
+            [disabled]="totalSelecionado != 8 || mostrarAguardeCampeonato">
+            
+          </button>
+        </div>
+    </div>
+  </div>
+  <br>
+  <div *ngIf="mostrarAguarde ==false; else aguardeFilmes" class="row">  
+    <div name="listaFilmes" *ngFor="let filme of filmes; let indice=index" class="col-md-3">
+      <div class="card" style="margin-bottom: 10px;cursor: pointer" (click)="onClickFilme(indice)">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-2">
+                <label class="label-checkbox" style="margin-top: 70%">
+                    <input type="checkbox" [checked]="filme.selecionado" (click)="onClickFilme(indice)">
+                    <span class="checkmark"></span>
+                  </label>
+            </div>
+            <div class="col-md-10"> 
+                <p class="card-text" style="font-size: 12px"><strong>{{filme.titulo}}</strong></p>
+                <p class="card-text">{{filme.ano}}</p>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
