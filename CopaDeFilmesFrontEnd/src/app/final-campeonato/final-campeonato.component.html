@@ -1,0 +1,49 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="jumbotron text-center">
+            <p class="lead">Campeonato de Filmes</p>
+          <h1 class="display-4">Resultado Final</h1>
+          <hr class="my-4">
+          <p class="lead">Veja o resultado final do campeonato de filmes de forma simples e rápida.</p>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="campeonato.campeao != undefined" class="row">
+      <div class="col-md-12">
+        <div class="card flex-row flex-wrap">
+          <div class="card-header border-0">
+              <span class="posicaoRanking">1°</span>
+          </div>
+          <div style="padding-top: 2.5%;padding-bottom: 2%" class="card-block px-2">
+              <h4 class="card-title"  id="lblCampeao">{{campeonato.campeao.titulo}}</h4>
+            </div>
+          <div class="w-100"></div>
+      </div>
+      </div>
+    </div>
+    <br>
+    <div *ngIf="campeonato.viceCampeao != undefined" class="row">
+      <div class="col-md-12">
+        <div class="card flex-row flex-wrap">
+          <div class="card-header border-0">
+            <span class="posicaoRanking">2°</span>
+          </div>
+          <div class="card-block px-2" style="padding-top: 2.5%;padding-bottom: 2%">
+            <div>
+              <h4 class="card-title"  id="lblViceCampeao">{{campeonato.viceCampeao.titulo}}</h4>
+          </div>
+        </div>
+          <div class="w-100"></div>
+      </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-12">
+          <button type="button" class="btn btn-primary btn-block" (click)="onClickVoltar()">Voltar</button>
+        </div>
+    </div>
+    <br>
+</div>
+  
